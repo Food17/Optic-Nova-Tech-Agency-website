@@ -7,13 +7,13 @@ import { projects } from "@/data/projects";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio® — Web, Brand & Growth Agency" },
+      { title: "Studio® · Web, Brand & Growth Agency" },
       {
         name: "description",
         content:
           "We build high-converting websites, memorable brand identities, and growth engines for ambitious businesses. Web development, UI/UX, graphic design, SEO, and AI automation.",
       },
-      { property: "og:title", content: "Studio® — Web, Brand & Growth Agency" },
+      { property: "og:title", content: "Studio® · Web, Brand & Growth Agency" },
       {
         property: "og:description",
         content:
@@ -37,13 +37,6 @@ const marqueeItems = [
   "AI Automation",
 ];
 
-const stats = [
-  { metric: "40+", label: "Projects delivered" },
-  { metric: "3.2×", label: "Average conversion lift" },
-  { metric: "98%", label: "Client retention" },
-  { metric: "24h", label: "Response time" },
-];
-
 const process = [
   {
     step: "01",
@@ -53,12 +46,12 @@ const process = [
   {
     step: "02",
     title: "Design",
-    text: "Strategy becomes identity, interface, and message — designed around conversion.",
+    text: "Strategy becomes identity, interface, and message, all designed around conversion.",
   },
   {
     step: "03",
     title: "Build",
-    text: "We ship fast, performance-obsessed builds with animations that feel premium.",
+    text: "We ship fast, performance-obsessed builds with motion that feels premium.",
   },
   {
     step: "04",
@@ -95,7 +88,7 @@ function HomePage() {
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              A tech agency for ambitious businesses — high-converting websites, memorable brand
+              A tech agency for ambitious businesses. High-converting websites, memorable brand
               identities, and the visibility engines that put you in front of a wider market.
             </p>
           </Reveal>
@@ -263,37 +256,8 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Stats + testimonial */}
-      <section className="border-y border-border bg-card">
-        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-          <div className="grid gap-4 md:grid-cols-4">
-            {stats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 60}>
-                <div className="rounded-2xl border border-border bg-background p-7 text-center">
-                  <p className="font-display text-4xl font-bold text-gradient md:text-5xl">
-                    {stat.metric}
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={200}>
-            <figure className="mx-auto mt-20 max-w-3xl text-center">
-              <blockquote className="font-serif text-2xl italic leading-relaxed text-foreground md:text-3xl">
-                "They didn't just redesign our website — they redesigned how customers see us.
-                Conversions doubled within a quarter."
-              </blockquote>
-              <figcaption className="mt-6 text-sm text-muted-foreground">
-                — CEO, Northpay
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden border-t border-border">
         <div
           className="pointer-events-none absolute inset-x-0 bottom-0 h-[400px] opacity-20 blur-3xl"
           style={{ background: "radial-gradient(ellipse at bottom, var(--secondary), transparent 70%)" }}
