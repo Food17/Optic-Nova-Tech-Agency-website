@@ -10,3 +10,4 @@
 - [ ] Lovable Cloud: inquiries table + contact form + email alert
 - [ ] SEO metadata pass + final polish
 - [ ] Awaiting from user: agency name/logo file, real portfolio project details
+- [ ] Style rule: strictly no em-dashes; no AI-slop elements (invented stats, fake testimonials, filler headings/icons)
