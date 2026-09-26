@@ -80,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Studio® — Web, Brand & Growth Agency" },
+      { title: "Studio® · Web, Brand & Growth Agency" },
       {
         name: "description",
         content:
           "A tech agency building high-converting websites, memorable brand identities, and growth engines: web development, UI/UX, graphic design, SEO, and AI automation.",
       },
-      { property: "og:title", content: "Studio® — Web, Brand & Growth Agency" },
+      { property: "og:title", content: "Studio® · Web, Brand & Growth Agency" },
       {
         property: "og:description",
         content:

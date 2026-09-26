@@ -12,15 +12,15 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.project.title} — Studio®` },
+          { title: `${loaderData.project.title} · Studio®` },
           { name: "description", content: loaderData.project.summary },
-          { property: "og:title", content: `${loaderData.project.title} — Studio®` },
+          { property: "og:title", content: `${loaderData.project.title} · Studio®` },
           { property: "og:description", content: loaderData.project.summary },
           { property: "og:type", content: "article" },
           { name: "twitter:card", content: "summary_large_image" },
         ]
       : [
-          { title: "Project not found — Studio®" },
+          { title: "Project not found · Studio®" },
           { name: "robots", content: "noindex" },
         ],
   }),
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/work/$slug")({
 function ProjectPage() {
   const { project } = Route.useLoaderData();
   const index = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(index + 1) % projects.length];
+  const next = projects[(index + 1) % projects.length]!;
 
   return (
     <div className="bg-background">

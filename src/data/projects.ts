@@ -19,7 +19,7 @@ export const projects: Project[] = [
     category: "Web Development",
     year: "2026",
     summary:
-      "A complete redesign and rebuild of a B2B payments dashboard — faster, clearer, and built to convert trial users into paying customers.",
+      "A complete redesign and rebuild of a B2B payments dashboard, faster, clearer, and built to convert trial users into paying customers.",
     challenge:
       "Northpay's dashboard was slow, dated, and confusing. Trial users dropped off before reaching their first transaction, and the marketing site wasn't communicating the product's value.",
     solution:
@@ -38,7 +38,7 @@ export const projects: Project[] = [
     category: "Brand Identity",
     year: "2026",
     summary:
-      "Full brand identity for a new restaurant group — logo, menus, signage, social templates, and a launch website.",
+      "Full brand identity for a new restaurant group, logo, menus, signage, social templates, and a launch website.",
     challenge:
       "A new restaurant entering a crowded market needed an identity distinctive enough to stand out and flexible enough to stretch across print, digital, and physical space.",
     solution:
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     category: "Social Media",
     year: "2025",
     summary:
-      "A six-month social media program — strategy, creative, and management — that turned a quiet clinic page into a patient acquisition channel.",
+      "A six-month social media program, strategy, creative, and management, that turned a quiet clinic page into a patient acquisition channel.",
     challenge:
       "The clinic posted irregularly with no strategy, and appointment bookings from social were effectively zero.",
     solution:
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     category: "Email Marketing",
     year: "2026",
     summary:
-      "A complete lifecycle email program — onboarding, activation, win-back — that recovered churned users and lifted expansion revenue.",
+      "A complete lifecycle email program, onboarding, activation, win-back, that recovered churned users and lifted expansion revenue.",
     challenge:
       "Loopstack had a single generic newsletter. Users signed up, never activated, and churned silently.",
     solution:

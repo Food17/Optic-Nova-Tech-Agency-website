@@ -6,13 +6,13 @@ import { services } from "@/data/services";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Studio®" },
+      { title: "Services · Studio®" },
       {
         name: "description",
         content:
-          "Web development & design, brand identity, UI/UX, graphic design, SEO, social media management, email marketing, and AI automation — everything your brand needs to grow.",
+          "Web development & design, brand identity, UI/UX, graphic design, SEO, social media management, email marketing, and AI automation, everything your brand needs to grow.",
       },
-      { property: "og:title", content: "Services — Studio®" },
+      { property: "og:title", content: "Services · Studio®" },
       {
         property: "og:description",
         content:
@@ -46,7 +46,7 @@ function ServicesPage() {
               <span className="font-serif font-normal italic text-gradient">compound</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              From your first logo to full AI-powered operations — one partner for every stage of
+              From your first logo to full AI-powered operations, one partner for every stage of
               your brand's growth.
             </p>
           </Reveal>

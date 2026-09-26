@@ -221,7 +221,7 @@ function HomePage() {
                     </p>
                   </div>
                   <span className="hidden font-display text-2xl font-bold text-gradient md:block">
-                    {project.results[0].metric}
+                    {project.results[0]?.metric}
                   </span>
                   <ArrowUpRight className="hidden size-6 text-muted-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-primary md:block" />
                 </Link>

@@ -1,13 +1,12 @@
 # Roadmap
 
-- [x] Plan approved: full multi-page agency site
-- [ ] Design tokens + fonts (green gradient, Space Grotesk/Instrument Serif/Inter)
-- [ ] Shared layout: header, footer, scroll reveals, page transitions
-- [ ] Home page
-- [ ] Services overview + 7 service detail pages
-- [ ] Portfolio grid + case study pages (sample entries; user provides real ones)
-- [ ] About + Contact pages
-- [ ] Lovable Cloud: inquiries table + contact form + email alert
-- [ ] SEO metadata pass + final polish
-- [ ] Awaiting from user: agency name/logo file, real portfolio project details
-- [ ] Style rule: strictly no em-dashes; no AI-slop elements (invented stats, fake testimonials, filler headings/icons)
+## Done
+- Multi-page agency site: Home, Services, 7 service detail pages, Work, 4 case studies, About, Contact
+- Brand system: green gradient on black, Space Grotesk / Instrument Serif / Inter, animations
+- Contact form saves inquiries to the database
+- No em-dashes, no AI-slop copy
+
+## Waiting on user
+- Real agency name and logo (placeholder: Studio®)
+- Real contact email (placeholder: hello@studio.agency)
+- Real portfolio projects to replace the samples
