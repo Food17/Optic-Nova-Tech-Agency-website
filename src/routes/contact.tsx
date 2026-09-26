@@ -136,7 +136,7 @@ function ContactPage() {
                       placeholder="Your name"
                       className={inputClass}
                     />
-                    {errors.name && <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>}
+                    {errors["name"] && <p className="mt-1.5 text-xs text-destructive">{errors["name"]}</p>}
                   </div>
                   <div>
                     <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
@@ -150,7 +150,7 @@ function ContactPage() {
                       placeholder="you@company.com"
                       className={inputClass}
                     />
-                    {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
+                    {errors["email"] && <p className="mt-1.5 text-xs text-destructive">{errors["email"]}</p>}
                   </div>
                   <div>
                     <label htmlFor="company" className="mb-2 block text-sm font-medium text-foreground">
@@ -220,8 +220,8 @@ function ContactPage() {
                     placeholder="What are you building, who is it for, and what does success look like?"
                     className={inputClass}
                   />
-                  {errors.message && (
-                    <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>
+                  {errors["message"] && (
+                    <p className="mt-1.5 text-xs text-destructive">{errors["message"]}</p>
                   )}
                 </div>
 
