@@ -6,13 +6,13 @@ import { services } from "@/data/services";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services, Studio®" },
+      { title: "Services · Studio®" },
       {
         name: "description",
         content:
           "Web development & design, brand identity, UI/UX, graphic design, SEO, social media management, email marketing, and AI automation, everything your brand needs to grow.",
       },
-      { property: "og:title", content: "Services, Studio®" },
+      { property: "og:title", content: "Services · Studio®" },
       {
         property: "og:description",
         content:

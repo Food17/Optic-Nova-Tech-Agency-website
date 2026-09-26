@@ -5,13 +5,13 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About, Studio®" },
+      { title: "About · Studio®" },
       {
         name: "description",
         content:
           "A tech agency on a mission: give growing brands the conversion, visibility, and strategic positioning to reach a larger market.",
       },
-      { property: "og:title", content: "About, Studio®" },
+      { property: "og:title", content: "About · Studio®" },
       {
         property: "og:description",
         content:
