@@ -5,13 +5,13 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Studio®" },
+      { title: "About, Studio®" },
       {
         name: "description",
         content:
           "A tech agency on a mission: give growing brands the conversion, visibility, and strategic positioning to reach a larger market.",
       },
-      { property: "og:title", content: "About — Studio®" },
+      { property: "og:title", content: "About, Studio®" },
       {
         property: "og:description",
         content:
@@ -31,7 +31,7 @@ const values = [
   },
   {
     title: "Systems, not one-offs",
-    text: "We build brand and design systems that scale — so every future asset, page, and campaign starts ahead.",
+    text: "We build brand and design systems that scale, so every future asset, page, and campaign starts ahead.",
   },
   {
     title: "Momentum over perfection",
@@ -72,12 +72,12 @@ function AboutPage() {
               Why we exist
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              Too many great businesses stay invisible — buried under dated websites, inconsistent
+              Too many great businesses stay invisible, buried under dated websites, inconsistent
               branding, and marketing that doesn't convert. We started this agency to change that.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               We give growing brands the high conversion and visibility they need for consistent
-              growth — and position them strategically to reach a wider audience and compete in a
+              growth, and position them strategically to reach a wider audience and compete in a
               larger market.
             </p>
           </Reveal>

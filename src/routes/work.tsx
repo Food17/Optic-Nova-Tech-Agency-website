@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
-      { title: "Work — Studio®" },
+      { title: "Work, Studio®" },
       {
         name: "description",
         content:
-          "Case studies in web development, brand identity, SEO, social media, email automation, and AI — real projects, measurable results.",
+          "Case studies in web development, brand identity, SEO, social media, email automation, and AI, real projects, measurable results.",
       },
-      { property: "og:title", content: "Work — Studio®" },
+      { property: "og:title", content: "Work, Studio®" },
       {
         property: "og:description",
         content: "Case studies with measurable results across web, brand, SEO, and automation.",

@@ -38,7 +38,7 @@ export const services: Service[] = [
     shortTitle: "Brand Identity & UI/UX",
     tagline: "Identities people remember. Interfaces people love.",
     description:
-      "We craft complete brand identities — logo, color, typography, voice — and translate them into intuitive UI/UX that feels effortless. Your brand becomes a system, not a one-off logo file.",
+      "We craft complete brand identities, logo, color, typography, voice, and translate them into intuitive UI/UX that feels effortless. Your brand becomes a system, not a one-off logo file.",
     deliverables: [
       "Logo & visual identity systems",
       "Brand guidelines & style guides",
@@ -59,7 +59,7 @@ export const services: Service[] = [
     shortTitle: "Graphic Design",
     tagline: "Design that stops the scroll and starts conversations.",
     description:
-      "Flyers, posters, social media creatives, and ad designs built on your brand system. Every asset is designed to grab attention and drive action — in feeds, in print, and in campaigns.",
+      "Flyers, posters, social media creatives, and ad designs built on your brand system. Every asset is designed to grab attention and drive action, in feeds, in print, and in campaigns.",
     deliverables: [
       "Social media creatives & templates",
       "Ad designs for Meta, Google & more",
@@ -80,7 +80,7 @@ export const services: Service[] = [
     shortTitle: "SEO",
     tagline: "Get found by the people already looking for you.",
     description:
-      "Technical SEO, content strategy, and authority building that compound over time. We put your business on the first page for the searches that matter — and keep you there.",
+      "Technical SEO, content strategy, and authority building that compound over time. We put your business on the first page for the searches that matter, and keep you there.",
     deliverables: [
       "Technical SEO audits & fixes",
       "Keyword research & content strategy",
@@ -121,7 +121,7 @@ export const services: Service[] = [
     shortTitle: "Email & Automation",
     tagline: "The highest-ROI channel, finally working for you.",
     description:
-      "From welcome sequences to full lifecycle automation, we build email systems that nurture leads and bring customers back — automatically.",
+      "From welcome sequences to full lifecycle automation, we build email systems that nurture leads and bring customers back, automatically.",
     deliverables: [
       "Email strategy & campaign design",
       "Automated flows (welcome, abandoned cart, re-engagement)",
@@ -141,7 +141,7 @@ export const services: Service[] = [
     shortTitle: "AI Automation",
     tagline: "Automate the busywork. Amplify the work that matters.",
     description:
-      "We design AI-powered workflows that handle repetitive tasks — lead qualification, support, content ops, internal tooling — so your team focuses on growth.",
+      "We design AI-powered workflows that handle repetitive tasks, lead qualification, support, content ops, internal tooling, so your team focuses on growth.",
     deliverables: [
       "AI workflow & process automation",
       "Chatbots & AI assistants",
