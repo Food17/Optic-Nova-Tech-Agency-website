@@ -54,6 +54,11 @@ export function Footer() {
             </h3>
             <ul className="mt-5 space-y-3">
               <li>
+                <Link to="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link to="/work" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Work
                 </Link>
@@ -61,6 +66,11 @@ export function Footer() {
               <li>
                 <Link to="/about" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  FAQs
                 </Link>
               </li>
               <li>

@@ -272,10 +272,10 @@ function ContactPage() {
                   Write to us directly and we'll take it from there.
                 </p>
                 <a
-                  href="mailto:hello@studio.agency"
+                  href="mailto:contact.onlineopticalnova@gmail.com"
                   className="story-link mt-4 inline-block font-display text-lg font-medium text-foreground"
                 >
-                  hello@studio.agency
+                  contact.onlineopticalnova@gmail.com
                 </a>
               </div>
             </div>
