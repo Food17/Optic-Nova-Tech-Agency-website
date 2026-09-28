@@ -4,9 +4,11 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQs" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -45,7 +47,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:gap-8 md:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <Link
               key={link.to}
