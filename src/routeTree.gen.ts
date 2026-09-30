@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
@@ -43,6 +44,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRouteWithChildren
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRouteWithChildren
   '/services/$slug': typeof ServicesSlugRoute
   '/work/$slug': typeof WorkSlugRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRouteWithChildren
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRouteWithChildren
   '/services/$slug': typeof ServicesSlugRoute
   '/work/$slug': typeof WorkSlugRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
   '/services': typeof ServicesRouteWithChildren
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRouteWithChildren
   '/services/$slug': typeof ServicesSlugRoute
   '/work/$slug': typeof WorkSlugRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/services'
+    | '/thank-you'
     | '/work'
     | '/services/$slug'
     | '/work/$slug'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/services'
+    | '/thank-you'
     | '/work'
     | '/services/$slug'
     | '/work/$slug'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/faq'
     | '/services'
+    | '/thank-you'
     | '/work'
     | '/services/$slug'
     | '/work/$slug'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  ThankYouRoute: typeof ThankYouRoute
   WorkRoute: typeof WorkRouteWithChildren
 }
 
@@ -167,6 +180,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  ThankYouRoute: ThankYouRoute,
   WorkRoute: WorkRouteWithChildren,
 }
 export const routeTree = rootRouteImport
