@@ -1,89 +1,76 @@
-# Agency Website: Full Development Blueprint
+# Agency Website: Start-to-Finish Build Roadmap
 
-A complete direction for turning the current site into a fully functional, sales-converting, SEO-strong agency website.
+A step-by-step path from where the site is now to a finished, published, client-winning website. Each phase lists what I build, what you provide, and how you know it is done.
 
-## 1. Technology stack (already in place)
+## Where you are now
 
-- React 19 + TypeScript, TanStack Start (SSR, fast page loads, real URLs per page)
-- Tailwind CSS v4 with your brand tokens (green gradient #267512 to #31F600 on black/white, Space Grotesk / Instrument Serif / Inter)
-- Lovable Cloud (Supabase) for database, storage, and future auth
-- Vite build, deployed to global edge hosting on publish
+Already built and working in preview:
 
-## 2. Site architecture (pages)
+- Pages: Home, Services (7 detail pages), Work (4 sample case studies), About, FAQs, Contact
+- Your brand applied: green gradient on black/white, Space Grotesk / Instrument Serif / Inter, animations
+- Contact form that saves inquiries to the database
+- Per-page SEO titles and descriptions
 
-```text
-/                     Home: positioning statement, services snapshot, selected work, proof, CTA
-/services             All 7 services overview
-/services/{slug}      Detail page per service (web dev, design/redesign, brand identity,
-                      graphic design, UI/UX, SEO, social/email/AI automation)
-/work                 Portfolio grid
-/work/{slug}          Case study: problem, approach, outcome, visuals
-/about                Story, values, process
-/faq                  Expandable answers (done)
-/contact              Inquiry form (done, saves to database)
-```
+## Phase 1: Make it yours (identity)
 
-Planned additions:
+**You provide:** real agency name, logo file, tagline if you have one.
+**I build:** swap the "Studio®" placeholder everywhere (header, footer, page titles, email footer, metadata), add the logo to header and browser tab icon.
+**Done when:** every page shows your real name and logo.
 
-- /blog or /insights: articles targeting search keywords your clients use
-- /pricing or pricing anchors on service pages: package tiers or starting-at prices
-- /thank-you: post-form confirmation page for conversion tracking
-- Legal: /privacy, /terms (needed for trust and ad platforms)
+## Phase 2: Real portfolio (proof)
 
-## 3. Database design (Lovable Cloud)
+**You provide:** 3 to 6 real projects. For each: client/name, what you did, 2 to 4 images, and any result (even "site launched", "rebrand delivered").
+**I build:** move case studies into the database so you can add more later without touching code, replace the samples, design each case study page around problem, work, outcome.
+**Done when:** /work shows only your real projects and each opens a full case study.
 
-Existing:
+## Phase 3: Conversion (turning visitors into leads)
 
-- `inquiries` table: name, email, company, service, budget, message (public insert only)
-
-Planned tables:
-
-- `case_studies`: title, slug, client, services, summary, body, cover image, results, published flag. Replaces hardcoded samples so you can add projects without code changes.
-- `posts`: blog articles with slug, title, excerpt, body, cover, published date, SEO fields.
-- `testimonials`: client name, role, company, quote, linked case study.
-- `newsletter_subscribers`: email capture for your email marketing service (double opt-in ready).
-- Storage bucket `media`: portfolio images, blog covers, your logo.
-
-All tables get row-level security: public can read published content and submit forms; only you (admin role) can edit.
-
-## 4. Conversion features
-
-- One clear call to action repeated per page: "Start a project" leading to /contact
-- Contact form qualifies leads: service, budget range, message (already built)
-- Thank-you page after submission so you can measure conversions
-- Service pages end with a relevant CTA and a mini FAQ
-- Case studies show outcomes first (numbers, before/after) to sell results, not process
-- Sticky header CTA button on scroll
-- WhatsApp or email quick-contact option for visitors who skip forms
+**I build:**
+- Thank-you page after form submission (so leads feel confirmed and you can track conversions)
+- Clear "Start a project" call to action on every page, including a sticky header button
+- Service pages each end with a relevant next step
 - Newsletter signup in the footer feeding your email marketing
 
-## 5. SEO foundation
+**You provide:** nothing, though deciding a starting price or package names helps.
+**Done when:** every page has one obvious next action and the form flow ends on a confirmation page.
 
-- Per-page titles, descriptions, Open Graph tags (done for current pages; extend to every new page)
-- JSON-LD structured data: Organization + WebSite sitewide, Article on blog posts, Service on service pages
-- sitemap.xml and robots.txt once the site has its public URL
-- Blog content strategy: articles answering questions your target clients search (e.g. "how much does a website redesign cost", "brand identity checklist for startups")
-- Fast load times and mobile-first layout (already the default)
-- Semrush keyword research to pick blog topics and service-page wording based on real search volume
+## Phase 4: Content and SEO (getting found)
 
-## 6. Content you still need to supply
+**I build:**
+- Blog/insights section with a database-backed article system
+- First 3 articles targeting questions your clients actually search (chosen with real keyword data via Semrush)
+- Structured data (Organization, Service, Article schemas) so Google understands the site
+- sitemap.xml and robots.txt
 
-- Real agency name and logo (current placeholder: Studio®)
-- Real portfolio projects with images and results
-- Team or founder photo and short bio for About
-- Any certifications, client logos, or numbers worth showing
+**You provide:** any topics you want to be known for.
+**Done when:** articles are live and each page on the site has unique, accurate search metadata.
 
-## 7. Suggested build order
+## Phase 5: Trust signals
 
-1. You supply name, logo, real projects; I swap out placeholders
-2. Move case studies into the database with an admin-friendly structure
-3. Add blog with first 3 SEO-targeted articles
-4. Add testimonials, thank-you page, newsletter capture
-5. SEO pass: structured data, sitemap, metadata on every page
-6. Publish, connect your custom domain, submit to Google Search Console
+**I build:** testimonials section (on Home and Work), client logos row if you have them, privacy and terms pages.
+**You provide:** 2 to 4 short client quotes with names, or permission to request them.
+**Done when:** a new visitor sees proof that real businesses trust you.
 
-## Technical notes
+## Phase 6: Launch
 
-- Admin editing of case studies/posts can start as direct database edits via the backend panel; a full admin dashboard is a later phase if you want one.
-- No em-dashes and no filler copy remain standing rules for all new content.
-- Each phase above works independently; nothing blocks publishing the current site today.
+**I build:** final check of every page on mobile and desktop, then publish.
+**You provide:** your custom domain if you have one (I connect it), and a Google account for Search Console.
+**Done when:** the site is live on your domain and submitted to Google for indexing.
+
+## Phase 7: After launch (optional, ongoing)
+
+- Admin area so you can add case studies and articles yourself from a private dashboard
+- Analytics review after the first month: which pages get visits, where inquiries come from
+- New articles monthly to keep climbing search results
+
+## Standing rules for every phase
+
+- No em-dashes, no filler copy, no AI-looking clutter
+- Every new page gets its own SEO title and description
+- Mobile and desktop checked before any phase is called done
+
+## What I need from you right now to start Phase 1
+
+1. Your agency name
+2. Your logo (upload the file here)
+3. Optional: tagline
