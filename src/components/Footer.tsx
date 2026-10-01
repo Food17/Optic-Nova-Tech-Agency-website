@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 export function Footer() {
   return (
