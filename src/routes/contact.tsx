@@ -9,13 +9,13 @@ import { services } from "@/data/services";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact · Studio®" },
+      { title: "Contact · Online Optic Nova" },
       {
         name: "description",
         content:
           "Tell us about your project. We reply within 24 hours with a clear plan and next steps.",
       },
-      { property: "og:title", content: "Contact · Studio®" },
+      { property: "og:title", content: "Contact · Online Optic Nova" },
       {
         property: "og:description",
         content: "Tell us about your project. We reply within 24 hours.",

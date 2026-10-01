@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 export const Route = createFileRoute("/thank-you")({
   head: () => ({
     meta: [
-      { title: "Thank you · Studio®" },
+      { title: "Thank you · Online Optic Nova" },
       { name: "description", content: "Your inquiry has been received. We reply within 24 hours." },
       { name: "robots", content: "noindex" },
     ],
