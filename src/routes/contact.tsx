@@ -42,6 +42,7 @@ const inputClass =
   "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary/60";
 
 function ContactPage() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -51,7 +52,7 @@ function ContactPage() {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
 
   const set = (key: keyof typeof form) => (value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -78,7 +79,11 @@ function ContactPage() {
       budget: parsed.data.budget || null,
       message: parsed.data.message,
     });
-    setStatus(error ? "error" : "sent");
+    if (error) {
+      setStatus("error");
+    } else {
+      navigate({ to: "/thank-you" });
+    }
   }
 
   return (
