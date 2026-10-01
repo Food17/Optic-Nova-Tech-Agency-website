@@ -12,15 +12,15 @@ export const Route = createFileRoute("/services/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.service.title} · Studio®` },
+          { title: `${loaderData.service.title} · Online Optic Nova` },
           { name: "description", content: loaderData.service.description },
-          { property: "og:title", content: `${loaderData.service.title} · Studio®` },
+          { property: "og:title", content: `${loaderData.service.title} · Online Optic Nova` },
           { property: "og:description", content: loaderData.service.description },
           { property: "og:type", content: "website" },
           { name: "twitter:card", content: "summary_large_image" },
         ]
       : [
-          { title: "Service not found · Studio®" },
+          { title: "Service not found · Online Optic Nova" },
           { name: "robots", content: "noindex" },
         ],
   }),

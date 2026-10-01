@@ -1,5 +1,4 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { cn } from "@/lib/utils";
 
 interface RevealProps {
   children: ReactNode;
@@ -13,23 +12,33 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            el.classList.add("is-visible");
-            observer.disconnect();
-          }
-        }
-      },
-      { threshold: 0.12 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let ctx: { revert: () => void } | undefined;
+    let cancelled = false;
+    (async () => {
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+      ctx = gsap.context(() => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 32,
+          duration: 0.9,
+          delay: delay / 1000,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        });
+      });
+    })();
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
+  }, [delay]);
 
   return (
-    <div ref={ref} className={cn("reveal", className)} style={{ transitionDelay: `${delay}ms` }}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

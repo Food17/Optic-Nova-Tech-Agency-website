@@ -2,13 +2,13 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { brand } from "@/lib/brand";
 
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/work", label: "Work" },
   { to: "/services", label: "Services" },
   { to: "/about", label: "About" },
-  { to: "/faq", label: "FAQs" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -39,12 +39,13 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
         <Link to="/" className="group flex items-center gap-2.5" aria-label="Home">
-          <span className="flex size-8 items-center justify-center rounded-md bg-primary font-display text-sm font-bold text-primary-foreground transition-transform duration-300 group-hover:rotate-6">
-            S
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-            Studio<span className="text-primary">®</span>
-          </span>
+          {brand.logo ? (
+            <img src={brand.logo} alt={brand.name} className="h-8 w-auto" />
+          ) : (
+            <span className="font-display text-lg font-semibold tracking-tight text-foreground">
+              Online Optic <span className="text-primary">Nova</span>
+            </span>
+          )}
         </Link>
 
         <nav className="hidden items-center gap-5 lg:gap-8 md:flex" aria-label="Primary">
