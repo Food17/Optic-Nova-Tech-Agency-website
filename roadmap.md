@@ -11,3 +11,7 @@
 ## Waiting on user
 - Real agency name and logo (placeholder: Studio®)
 - Real portfolio projects to replace the samples
+
+## Phase 3 progress (conversion)
+- Thank-you page at /thank-you; contact form now redirects there after submit
+- Newsletter signup in footer, saves to newsletter_subscribers table

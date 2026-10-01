@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
 export function Footer() {
   return (
@@ -20,6 +21,10 @@ export function Footer() {
               A tech agency helping brands grow with high-converting websites, memorable
               identities, and visibility that compounds.
             </p>
+            <p className="mt-8 font-display text-sm font-semibold text-foreground">
+              Get growth tips in your inbox
+            </p>
+            <NewsletterForm />
             <Link
               to="/contact"
               className="group mt-6 inline-flex items-center gap-1.5 font-display text-lg font-medium text-foreground"

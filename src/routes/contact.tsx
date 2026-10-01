@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { z } from "zod";
 import { Reveal } from "@/components/Reveal";
 import { supabase } from "@/integrations/supabase/client";
@@ -42,6 +42,7 @@ const inputClass =
   "w-full rounded-xl border border-input bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary/60";
 
 function ContactPage() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -51,7 +52,7 @@ function ContactPage() {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
 
   const set = (key: keyof typeof form) => (value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -78,7 +79,11 @@ function ContactPage() {
       budget: parsed.data.budget || null,
       message: parsed.data.message,
     });
-    setStatus(error ? "error" : "sent");
+    if (error) {
+      setStatus("error");
+    } else {
+      navigate({ to: "/thank-you" });
+    }
   }
 
   return (
@@ -108,20 +113,6 @@ function ContactPage() {
       <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr]">
           <Reveal>
-            {status === "sent" ? (
-              <div className="flex h-full flex-col items-start justify-center rounded-2xl border border-primary/30 bg-card p-10">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary/15">
-                  <Check className="size-6 text-primary" />
-                </span>
-                <h2 className="mt-6 font-display text-2xl font-bold text-foreground">
-                  Inquiry received
-                </h2>
-                <p className="mt-3 max-w-md leading-relaxed text-muted-foreground">
-                  Thanks for reaching out. We'll review your project and get back to you within
-                  24 hours.
-                </p>
-              </div>
-            ) : (
               <form onSubmit={onSubmit} className="rounded-2xl border border-border bg-card p-7 md:p-9" noValidate>
                 <div className="grid gap-5 md:grid-cols-2">
                   <div>
@@ -240,7 +231,6 @@ function ContactPage() {
                   <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </button>
               </form>
-            )}
           </Reveal>
 
           <Reveal delay={120}>
