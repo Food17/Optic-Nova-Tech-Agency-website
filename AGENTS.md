@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Animations use GSAP (+ScrollTrigger) loaded client-side inside effects, disabled for prefers-reduced-motion: SSR safe.
+- FAQ data lives in src/lib/faq.ts, shown on Home and on the /faq page (footer link only, not in main nav): one source, shareable page.
