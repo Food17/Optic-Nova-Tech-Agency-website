@@ -100,7 +100,6 @@ function WorkPage() {
                         {project.client} · {project.year}
                       </p>
                     </div>
-                    <ArrowUpRight className="mt-1 size-5 shrink-0 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                   </div>
                   <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {project.summary}

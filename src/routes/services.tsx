@@ -80,7 +80,6 @@ function ServicesPage() {
                   <span className="text-sm font-medium text-muted-foreground">
                     {service.deliverables.length} deliverables
                   </span>
-                  <ArrowUpRight className="size-5 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </div>
               </Link>
             </Reveal>
@@ -108,7 +107,6 @@ function ServicesPage() {
                     {service.tagline}
                   </p>
                 </div>
-                <ArrowUpRight className="mt-6 size-5 text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
               </Link>
             </Reveal>
           ))}
