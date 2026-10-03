@@ -67,11 +67,8 @@ function ServiceDetailPage() {
             </h2>
             <ul className="mt-6 space-y-4">
               {service.deliverables.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
-                    <Check className="size-3 text-primary" />
-                  </span>
-                  <span className="text-muted-foreground">{item}</span>
+                <li key={item} className="border-b border-border pb-4 text-muted-foreground">
+                  {item}
                 </li>
               ))}
             </ul>
