@@ -24,7 +24,6 @@ function ThankYouPage() {
         <div className="relative mx-auto flex min-h-[80vh] max-w-7xl flex-col items-start justify-center px-5 pb-16 pt-36 md:px-8">
           <Reveal>
             <span className="flex size-14 items-center justify-center rounded-full bg-primary/15">
-              <Check className="size-7 text-primary" />
             </span>
             <h1 className="mt-8 max-w-3xl font-display text-5xl font-bold tracking-tight text-foreground md:text-7xl">
               Inquiry <span className="font-serif font-normal italic text-gradient">received</span>

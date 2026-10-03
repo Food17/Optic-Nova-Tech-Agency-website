@@ -115,7 +115,6 @@ function ProjectPage() {
                   {next.title}
                 </p>
               </div>
-              <ArrowRight className="size-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
             </Link>
             <Link
               to="/contact"
