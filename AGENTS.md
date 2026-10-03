@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep the agency FAQs on a dedicated `/faq` route because visitors need a shareable, searchable answers page.
+- Animations use GSAP (+ScrollTrigger) loaded client-side inside effects, disabled for prefers-reduced-motion: SSR safe.
