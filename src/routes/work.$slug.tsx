@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { ProjectVisual } from "@/components/ProjectVisual";
+import { Button } from "@/components/ui/button";
 import { getProject, projects } from "@/data/projects";
 
 export const Route = createFileRoute("/work/$slug")({
@@ -21,6 +22,11 @@ export const Route = createFileRoute("/work/$slug")({
         ]
       : [
           { title: "Project not found · Online Optic Nova" },
+          { name: "description", content: "This project is no longer available. Browse the current work by Online Optic Nova." },
+          { property: "og:title", content: "Project not found · Online Optic Nova" },
+          { property: "og:description", content: "Browse the current work by Online Optic Nova." },
+          { property: "og:type", content: "website" },
+          { name: "twitter:card", content: "summary" },
           { name: "robots", content: "noindex" },
         ],
   }),
@@ -29,107 +35,55 @@ export const Route = createFileRoute("/work/$slug")({
 
 function ProjectPage() {
   const { project } = Route.useLoaderData();
-  const index = projects.findIndex((p) => p.slug === project.slug);
-  const next = projects[(index + 1) % projects.length]!;
+  const index = projects.findIndex((item) => item.slug === project.slug);
+  const next = projects[(index + 1) % projects.length];
 
   return (
     <div className="bg-background">
-      <section className="relative overflow-hidden bg-grid">
-        <div
-          className="pointer-events-none absolute -top-32 left-1/4 h-[400px] w-[600px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "radial-gradient(ellipse, var(--secondary), transparent 65%)" }}
-        />
-        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pt-44">
-          <Reveal>
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-            >
-              <ArrowLeft className="size-4" />
-              All work
-            </Link>
-            <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-              <span className="rounded-full border border-border px-3 py-1">{project.category}</span>
-              <span>{project.client}</span>
-              <span>·</span>
-              <span>{project.year}</span>
-            </div>
-            <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold tracking-tight text-foreground md:text-6xl">
-              {project.title}
-            </h1>
-            <p className="mt-6 max-w-2xl font-serif text-xl italic leading-relaxed text-muted-foreground md:text-2xl">
-              {project.summary}
-            </p>
-          </Reveal>
-        </div>
+      <section className="mx-auto max-w-7xl px-5 pb-12 pt-36 md:px-8 md:pb-16 md:pt-44">
+        <Reveal>
+          <Link to="/work" className="text-sm font-medium text-muted-foreground hover:text-primary">← All work</Link>
+          <p className="mt-10 text-xs font-semibold uppercase text-primary">{project.category}</p>
+          <h1 className="mt-3 max-w-4xl font-display text-4xl font-bold text-foreground md:text-7xl">{project.title}</h1>
+          <p className="mt-6 max-w-2xl font-serif text-xl italic leading-relaxed text-muted-foreground md:text-2xl">{project.summary}</p>
+          <Button asChild className="mt-8 rounded-sm">
+            <a href={project.url} target="_blank" rel="noopener noreferrer">{project.linkLabel} ↗</a>
+          </Button>
+        </Reveal>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-4 md:grid-cols-3">
-          {project.results.map((r, i) => (
-            <Reveal key={r.label} delay={i * 60}>
-              <div className="rounded-2xl border border-border bg-card p-8 text-center">
-                <p className="font-display text-4xl font-bold text-gradient md:text-5xl">
-                  {r.metric}
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">{r.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-20 grid gap-12 lg:grid-cols-2">
-          <Reveal>
-            <h2 className="font-display text-2xl font-bold text-foreground">The challenge</h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">{project.challenge}</p>
-          </Reveal>
-          <Reveal delay={120}>
-            <h2 className="font-display text-2xl font-bold text-foreground">What we did</h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">{project.solution}</p>
-          </Reveal>
-        </div>
-
+      <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <Reveal>
-          <div className="mt-16 flex flex-wrap gap-2">
-            {project.services.map((s) => (
-              <span
-                key={s}
-                className="rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground"
-              >
-                {s}
-              </span>
+          <ProjectVisual project={project} eager className="max-h-[680px] aspect-[16/10] border border-border md:aspect-[21/10]" />
+        </Reveal>
+        {project.images.length > 1 && (
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {project.images.slice(1).map((image) => (
+              <Reveal key={image.src}>
+                <div className="aspect-square overflow-hidden border border-border bg-muted">
+                  <img src={image.src} alt={image.alt} loading="lazy" className="h-full w-full object-contain" />
+                </div>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
-
+        )}
         <Reveal>
-          <div className="mt-24 grid gap-4 md:grid-cols-2">
-            <Link
-              to="/work/$slug"
-              params={{ slug: next.slug }}
-              className="group flex items-center justify-between rounded-2xl border border-border bg-card p-8 transition-all duration-300 hover:border-primary/40"
-            >
-              <div>
-                <p className="text-sm text-muted-foreground">Next project</p>
-                <p className="mt-2 font-display text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
-                  {next.title}
-                </p>
-              </div>
-            </Link>
-            <Link
-              to="/contact"
-              className="group flex items-center justify-between rounded-2xl bg-primary p-8 transition-all duration-300 hover:glow-primary"
-            >
-              <div>
-                <p className="text-sm text-primary-foreground/70">Want results like these?</p>
-                <p className="mt-2 font-display text-xl font-semibold text-primary-foreground">
-                  Start your project
-                </p>
-              </div>
-              <ArrowUpRight className="size-5 text-primary-foreground transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+          <div className="mt-14 grid gap-6 border-t border-border pt-10 md:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="text-xs font-semibold uppercase text-primary">Project details</p>
+              <p className="mt-3 font-display text-lg text-foreground">{project.client}</p>
+            </div>
+            <div>
+              <p className="max-w-2xl leading-relaxed text-muted-foreground">{project.scope}</p>
+              {project.sourceNote && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{project.sourceNote}</p>}
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block border-b border-primary pb-1 text-sm font-semibold text-foreground hover:text-primary">{project.linkLabel} ↗</a>
+            </div>
           </div>
         </Reveal>
+        <div className="mt-20 flex flex-wrap justify-between gap-8 border-t border-border pt-8">
+          {next && <Link to="/work/$slug" params={{ slug: next.slug }} className="font-display text-lg text-foreground hover:text-primary">Next: {next.title} →</Link>}
+          <Link to="/contact" className="font-display text-lg text-primary hover:text-foreground">Start a project →</Link>
+        </div>
       </section>
     </div>
   );
