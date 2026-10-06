@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { ProjectVisual } from "@/components/ProjectVisual";
 import { SplitHeadline, Line } from "@/components/SplitHeadline";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
@@ -129,25 +130,22 @@ function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 space-y-4">
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
             {featured.map((project, i) => (
               <Reveal key={project.slug} delay={i * 90}>
                 <Link
                   to="/work/$slug"
                   params={{ slug: project.slug }}
-                  className="group grid items-center gap-6 rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:border-primary/40 md:grid-cols-[1fr_auto] md:p-9"
+                  className="group block h-full overflow-hidden rounded-2xl border border-border bg-background transition-colors duration-300 hover:border-primary/40"
                 >
-                  <div>
+                  <ProjectVisual project={project} className="aspect-[4/3]" />
+                  <div className="p-6">
+                    <p className="text-xs font-medium uppercase text-primary">{project.category}</p>
                     <h3 className="font-display text-2xl font-semibold text-foreground transition-colors group-hover:text-primary md:text-3xl">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {project.client} · {project.category} · {project.year}
-                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
                   </div>
-                  <span className="hidden font-display text-2xl font-bold text-gradient md:block">
-                    {project.results[0]?.metric}
-                  </span>
                 </Link>
               </Reveal>
             ))}
