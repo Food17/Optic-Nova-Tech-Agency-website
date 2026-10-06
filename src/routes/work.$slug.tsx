@@ -37,6 +37,7 @@ function ProjectPage() {
   const { project } = Route.useLoaderData();
   const index = projects.findIndex((item) => item.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
+  const additionalImages = project.images?.slice(1) ?? [];
 
   return (
     <div className="bg-background">
@@ -56,9 +57,9 @@ function ProjectPage() {
         <Reveal>
           <ProjectVisual project={project} eager className="max-h-[680px] aspect-[16/10] border border-border md:aspect-[21/10]" />
         </Reveal>
-        {project.images.length > 1 && (
+        {additionalImages.length > 0 && (
           <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {project.images.slice(1).map((image) => (
+            {additionalImages.map((image) => (
               <Reveal key={image.src}>
                 <div className="aspect-square overflow-hidden border border-border bg-muted">
                   <img src={image.src} alt={image.alt} loading="lazy" className="h-full w-full object-contain" />
