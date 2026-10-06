@@ -1,16 +1,17 @@
 # Roadmap
 
 ## Done
-- Multi-page agency site: Home, Services, 7 service detail pages, Work, 4 case studies, About, Contact
+- Multi-page agency site: Home, Services, 7 service detail pages, Work, 5 sourced project pages, About, Contact
 - Brand system: green gradient on black, Space Grotesk / Instrument Serif / Inter, animations
 - Contact form saves inquiries to the database
 - No em-dashes, no AI-slop copy
 - Contact email updated to contact.onlineopticalnova@gmail.com
-- Home and FAQs added to site navigation; FAQs page added
+- Home added to site navigation; FAQs are shown on Home and linked from the footer
+- Work replaced with supplied web, graphic design, and brand identity projects
 
 ## Waiting on user
-- Real agency name and logo (placeholder: Studio®)
-- Real portfolio projects to replace the samples
+- Agency logo file
+- Plumber and blockchain container tracking website links and project details
 
 ## Phase 3 progress (conversion)
 - Thank-you page at /thank-you; contact form now redirects there after submit
