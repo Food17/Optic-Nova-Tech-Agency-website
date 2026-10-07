@@ -28,7 +28,7 @@ function WorkPage() {
       <section className="mx-auto max-w-7xl px-5 pb-12 pt-36 md:px-8 md:pb-16 md:pt-44">
         <Reveal>
           <h1 className="font-display text-5xl font-bold text-foreground md:text-7xl">Selected work<span className="text-primary">.</span></h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">Live websites and published design work. Open a project to see the visuals and original source.</p>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">Websites, graphic design, and brand identities.</p>
         </Reveal>
       </section>
 
@@ -48,16 +48,15 @@ function WorkPage() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-x-8 gap-y-14 md:grid-cols-2">
           {filtered.map((project, index) => (
             <Reveal key={project.slug} delay={index * 60}>
-              <Link to="/work/$slug" params={{ slug: project.slug }} className="group block h-full border border-border bg-card transition-colors hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                <ProjectVisual project={project} className="aspect-[16/10]" />
-                <div className="p-6 md:p-7">
-                  <p className="text-xs font-medium uppercase text-primary">{project.category}</p>
-                  <h2 className="mt-3 font-display text-2xl font-semibold text-foreground transition-colors group-hover:text-primary">{project.title}</h2>
+              <Link to="/work/$slug" params={{ slug: project.slug }} className="group block h-full rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                <ProjectVisual project={project} className="aspect-[4/3] rounded-md border border-border transition-colors group-hover:border-primary/40" />
+                <div className="pt-6">
+                  <p className="text-xs font-medium text-primary">{project.category}</p>
+                  <h2 className="mt-2 font-display text-2xl font-medium text-foreground transition-colors group-hover:text-primary md:text-3xl">{project.title}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.summary}</p>
-                  <span className="mt-5 inline-block border-b border-primary pb-1 text-sm font-semibold text-foreground">View project</span>
                 </div>
               </Link>
             </Reveal>

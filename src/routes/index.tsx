@@ -136,7 +136,7 @@ function HomePage() {
                 <Link
                   to="/work/$slug"
                   params={{ slug: project.slug }}
-                  className="group block h-full overflow-hidden rounded-2xl border border-border bg-background transition-colors duration-300 hover:border-primary/40"
+                  className="group block h-full overflow-hidden rounded-md border border-border bg-background transition-colors duration-300 hover:border-primary/40"
                 >
                   <ProjectVisual project={project} className="aspect-[4/3]" />
                   <div className="p-6">
