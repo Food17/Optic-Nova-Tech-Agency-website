@@ -12,6 +12,12 @@
 ## Waiting on user
 - Agency logo file
 - Plumber and blockchain container tracking website links and project details
+- Genuine client review quotes, names, and related projects
+
+## Project presentation
+- [ ] Refine project cards and detail pages with uncropped artwork and an interactive gallery
+- [ ] Source 3 to 4 authentic visuals for each graphic and identity project
+- [ ] Support genuine project reviews without publishing invented testimonials
 
 ## Phase 3 progress (conversion)
 - Thank-you page at /thank-you; contact form now redirects there after submit
