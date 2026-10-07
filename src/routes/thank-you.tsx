@@ -7,6 +7,10 @@ export const Route = createFileRoute("/thank-you")({
     meta: [
       { title: "Thank you · Online Optic Nova" },
       { name: "description", content: "Your inquiry has been received. We reply within 24 hours." },
+      { property: "og:title", content: "Thank you · Online Optic Nova" },
+      { property: "og:description", content: "Your project inquiry has been received by Online Optic Nova." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
     ],
   }),
