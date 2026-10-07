@@ -12,4 +12,6 @@
 - Animations use GSAP (+ScrollTrigger) loaded client-side inside effects, disabled for prefers-reduced-motion: SSR safe.
 - FAQ data lives in src/lib/faq.ts, shown on Home and on the /faq page (footer link only, not in main nav): one source, shareable page.
 - Portfolio entries use one typed data source shared by Home, Work, and project detail routes so sourced claims and links stay consistent.
+- Project galleries use the shared ProjectGallery with contained artwork, thumbnail selection, and an accessible enlarged view so previews never crop design content.
+- Reviews use shared brand data with optional project associations; illustrative review previews must be explicitly labeled and kept separate from real client reviews.
 - Nested content sections use an Outlet parent with an index route so list and detail pages render independently.

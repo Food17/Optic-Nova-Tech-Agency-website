@@ -1,8 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
-import { ProjectVisual } from "@/components/ProjectVisual";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { Button } from "@/components/ui/button";
 import { getProject, projects } from "@/data/projects";
+import { reviews, sampleProjectReviews } from "@/lib/brand";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -37,41 +38,37 @@ function ProjectPage() {
   const { project } = Route.useLoaderData();
   const index = projects.findIndex((item) => item.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
-  const additionalImages = project.images?.slice(1) ?? [];
+  const projectReviews = reviews.filter((review) => review.projectSlug === project.slug);
+  const sampleReview = sampleProjectReviews[project.slug];
 
   return (
     <div className="bg-background">
-      <section className="mx-auto max-w-7xl px-5 pb-12 pt-36 md:px-8 md:pb-16 md:pt-44">
+      <section className="mx-auto max-w-7xl px-5 pb-10 pt-32 md:px-8 md:pb-14 md:pt-40">
         <Reveal>
           <Link to="/work" className="text-sm font-medium text-muted-foreground hover:text-primary">← All work</Link>
-          <p className="mt-10 text-xs font-semibold uppercase text-primary">{project.category}</p>
-          <h1 className="mt-3 max-w-4xl font-display text-4xl font-bold text-foreground md:text-7xl">{project.title}</h1>
-          <p className="mt-6 max-w-2xl font-serif text-xl italic leading-relaxed text-muted-foreground md:text-2xl">{project.summary}</p>
-          <Button asChild className="mt-8 rounded-sm">
-            <a href={project.url} target="_blank" rel="noopener noreferrer">{project.linkLabel} ↗</a>
-          </Button>
+          <div className="mt-10 grid items-end gap-8 lg:grid-cols-[1.5fr_1fr]">
+            <div>
+              <h1 className="max-w-4xl break-words font-display text-4xl font-medium leading-[1.08] text-foreground md:text-6xl lg:text-7xl">{project.title}</h1>
+              <p className="mt-6 text-sm text-primary">{project.category}</p>
+            </div>
+            <div>
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground">{project.summary}</p>
+              <Button asChild variant="outline" className="mt-6 h-auto whitespace-normal rounded-sm px-5 py-3 text-left">
+                <a href={project.url} target="_blank" rel="noopener noreferrer">{project.linkLabel} ↗</a>
+              </Button>
+            </div>
+          </div>
         </Reveal>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-24 md:px-8">
         <Reveal>
-          <ProjectVisual project={project} eager className="max-h-[680px] aspect-[16/10] border border-border md:aspect-[21/10]" />
+          <ProjectGallery project={project} />
         </Reveal>
-        {additionalImages.length > 0 && (
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {additionalImages.map((image) => (
-              <Reveal key={image.src}>
-                <div className="aspect-square overflow-hidden border border-border bg-muted">
-                  <img src={image.src} alt={image.alt} loading="lazy" className="h-full w-full object-contain" />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        )}
         <Reveal>
           <div className="mt-14 grid gap-6 border-t border-border pt-10 md:grid-cols-[1fr_2fr]">
             <div>
-              <p className="text-xs font-semibold uppercase text-primary">Project details</p>
+              <h2 className="font-display text-2xl text-foreground">About the project</h2>
               <p className="mt-3 font-display text-lg text-foreground">{project.client}</p>
             </div>
             <div>
@@ -81,6 +78,18 @@ function ProjectPage() {
             </div>
           </div>
         </Reveal>
+        {(projectReviews.length > 0 || sampleReview) && <Reveal>
+          <div className="mt-16 border-t border-border pt-10 md:mt-24">
+            <h2 className="font-display text-xl text-foreground">{projectReviews.length ? "Client feedback" : "Sample review"}</h2>
+            {projectReviews.length ? projectReviews.map((review) => <figure key={review.name} className="mt-6 max-w-3xl border-l-2 border-primary pl-6">
+              <blockquote className="font-serif text-2xl leading-relaxed text-foreground md:text-3xl">“{review.quote}”</blockquote>
+              <figcaption className="mt-5 text-sm text-muted-foreground">{review.name}, {review.company}</figcaption>
+            </figure>) : <figure className="mt-6 max-w-3xl border-l-2 border-border pl-6">
+              <figcaption className="mb-4 text-sm font-medium text-muted-foreground">Illustrative only. Not submitted by a client.</figcaption>
+              <blockquote className="font-serif text-2xl leading-relaxed text-muted-foreground md:text-3xl">“{sampleReview}”</blockquote>
+            </figure>}
+          </div>
+        </Reveal>}
         <div className="mt-20 flex flex-wrap justify-between gap-8 border-t border-border pt-8">
           {next && <Link to="/work/$slug" params={{ slug: next.slug }} className="font-display text-lg text-foreground hover:text-primary">Next: {next.title} →</Link>}
           <Link to="/contact" className="font-display text-lg text-primary hover:text-foreground">Start a project →</Link>
