@@ -1,9 +1,25 @@
 import { Reveal } from "@/components/Reveal";
 import { reviews, sampleReviews } from "@/lib/brand";
 
+type ReviewItem = { quote: string; name: string; company: string };
+
 export function HomeReviews() {
   const hasReal = reviews.length > 0;
-  const items = hasReal ? reviews : sampleReviews;
+  const items: ReviewItem[] = hasReal ? reviews : sampleReviews;
+  const featured = items[0];
+  const rest = items.slice(1);
+  const side = rest.slice(0, 2);
+  const bottom = rest.slice(2);
+
+  if (!featured) return null;
+
+  const caption = (r: ReviewItem) => (
+    <figcaption className="mt-6 text-sm text-muted-foreground">
+      <span className="font-medium text-foreground">{r.name}</span>
+      {", "}
+      {r.company}
+    </figcaption>
+  );
 
   return (
     <section className="border-t border-border">
@@ -25,46 +41,36 @@ export function HomeReviews() {
           <Reveal delay={80}>
             <figure className="flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-8 md:p-10">
               <blockquote className="font-serif text-3xl italic leading-snug text-foreground md:text-4xl">
-                "{items[0].quote}"
+                "{featured.quote}"
               </blockquote>
-              <figcaption className="mt-8 text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">{items[0].name}</span>
-                {", "}
-                {items[0].company}
-              </figcaption>
+              {caption(featured)}
             </figure>
           </Reveal>
-          <div className="grid gap-4">
-            {items.slice(1, 3).map((r, i) => (
-              <Reveal key={r.name} delay={160 + i * 90}>
-                <figure className="h-full rounded-2xl border border-border bg-card p-8">
-                  <blockquote className="font-serif text-xl italic leading-snug text-foreground md:text-2xl">
-                    "{r.quote}"
-                  </blockquote>
-                  <figcaption className="mt-6 text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">{r.name}</span>
-                    {", "}
-                    {r.company}
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+          {side.length > 0 && (
+            <div className="grid gap-4">
+              {side.map((r, i) => (
+                <Reveal key={r.name} delay={160 + i * 90}>
+                  <figure className="h-full rounded-2xl border border-border bg-card p-8">
+                    <blockquote className="font-serif text-xl italic leading-snug text-foreground md:text-2xl">
+                      "{r.quote}"
+                    </blockquote>
+                    {caption(r)}
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
 
-        {items.length > 3 && (
+        {bottom.length > 0 && (
           <div className="mt-4 grid gap-4 md:grid-cols-2">
-            {items.slice(3, 5).map((r, i) => (
+            {bottom.map((r, i) => (
               <Reveal key={r.name} delay={i * 90}>
                 <figure className="h-full rounded-2xl border border-border bg-card p-8">
                   <blockquote className="font-serif text-xl italic leading-snug text-foreground md:text-2xl">
                     "{r.quote}"
                   </blockquote>
-                  <figcaption className="mt-6 text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground">{r.name}</span>
-                    {", "}
-                    {r.company}
-                  </figcaption>
+                  {caption(r)}
                 </figure>
               </Reveal>
             ))}
