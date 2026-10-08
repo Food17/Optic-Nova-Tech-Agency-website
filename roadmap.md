@@ -13,10 +13,11 @@
 - Agency logo file
 - Plumber and blockchain container tracking website links and project details
 - Genuine client review quotes, names, and related projects
+- Additional original artwork uploads: Behance blocks access to further gallery images
 
 ## Project presentation
 - [x] Refine project cards and detail pages with uncropped artwork and an interactive gallery
-- [ ] Source 3 to 4 authentic visuals for each graphic and identity project
+- [ ] Source 3 to 4 authentic visuals for each graphic and identity project (blocked: further Behance images unavailable; needs original uploads)
 - [x] Support genuine project reviews; illustrative samples are explicitly labeled and separate from client feedback
 
 ## Phase 3 progress (conversion)
