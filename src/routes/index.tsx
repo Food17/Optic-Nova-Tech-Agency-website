@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SplitHeadline, Line } from "@/components/SplitHeadline";
+import { HomeReviews } from "@/components/HomeReviews";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { faqs, faqJsonLd } from "@/lib/faq";
-import { reviews } from "@/lib/brand";
 import {
   Accordion,
   AccordionContent,
