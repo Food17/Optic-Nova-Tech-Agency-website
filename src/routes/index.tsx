@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { ProjectVisual } from "@/components/ProjectVisual";
 import { SplitHeadline, Line } from "@/components/SplitHeadline";
+import { HomeReviews } from "@/components/HomeReviews";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 import { faqs, faqJsonLd } from "@/lib/faq";
-import { reviews } from "@/lib/brand";
 import {
   Accordion,
   AccordionContent,
@@ -172,31 +172,7 @@ function HomePage() {
         </div>
       </section>
 
-      {reviews.length > 0 && (
-        <section className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-            <Reveal>
-              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                Reviews
-              </h2>
-            </Reveal>
-            <div className="mt-14 grid gap-4 md:grid-cols-2">
-              {reviews.map((r, i) => (
-                <Reveal key={r.name} delay={i * 90}>
-                  <figure className="h-full rounded-2xl border border-border bg-card p-8">
-                    <blockquote className="font-serif text-2xl italic leading-snug text-foreground">
-                      "{r.quote}"
-                    </blockquote>
-                    <figcaption className="mt-6 text-sm text-muted-foreground">
-                      {r.name}, {r.company}
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <HomeReviews />
 
       <section className="border-t border-border">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-[1fr_1.6fr]">

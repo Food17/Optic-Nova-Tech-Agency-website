@@ -8,6 +8,7 @@
 - Contact email updated to contact.onlineopticalnova@gmail.com
 - Home added to site navigation; FAQs are shown on Home and linked from the footer
 - Work replaced with supplied web, graphic design, and brand identity projects
+- Home reviews section live with clearly labeled illustrative samples; real reviews replace them automatically once added
 
 ## Waiting on user
 - Agency logo file
