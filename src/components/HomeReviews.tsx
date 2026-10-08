@@ -63,11 +63,11 @@ export function HomeReviews() {
         </div>
 
         {bottom.length > 0 && (
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="mt-4 grid gap-4">
             {bottom.map((r, i) => (
               <Reveal key={r.name} delay={i * 90}>
-                <figure className="h-full rounded-2xl border border-border bg-card p-8">
-                  <blockquote className="font-serif text-xl italic leading-snug text-foreground md:text-2xl">
+                <figure className="flex flex-wrap items-end justify-between gap-6 rounded-2xl border border-border bg-card p-8">
+                  <blockquote className="max-w-3xl font-serif text-xl italic leading-snug text-foreground md:text-2xl">
                     "{r.quote}"
                   </blockquote>
                   {caption(r)}
