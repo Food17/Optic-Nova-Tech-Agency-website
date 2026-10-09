@@ -24,3 +24,4 @@
 ## Phase 3 progress (conversion)
 - Thank-you page at /thank-you; contact form now redirects there after submit
 - Newsletter signup in footer, saves to newsletter_subscribers table
+- [x] AI service advisor page (/advisor)
