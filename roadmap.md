@@ -12,6 +12,8 @@
 
 ## Waiting on user
 - Agency logo file
+- Verified email domain so new enquiries can be emailed to the owner
+- About page: founding story, location, founding year, team names, roles, photos
 - Plumber and blockchain container tracking website links and project details
 - Genuine client review quotes, names, and related projects
 - Additional original artwork uploads: Behance blocks access to further gallery images
@@ -25,3 +27,4 @@
 - Thank-you page at /thank-you; contact form now redirects there after submit
 - Newsletter signup in footer, saves to newsletter_subscribers table
 - [x] AI service advisor page (/advisor)
+- [x] Advisor discovery call request form saves to enquiries

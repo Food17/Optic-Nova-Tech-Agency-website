@@ -4,6 +4,8 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { getService } from "@/data/services";
 import { getRecommendations } from "@/lib/advisor.functions";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "@tanstack/react-router";
 type Recommendation = Extract<Awaited<ReturnType<typeof getRecommendations>>, { ok: true }>["result"];
 
 export const Route = createFileRoute("/advisor")({
@@ -100,11 +102,54 @@ function AdvisorPage() {
               <ol className="mt-4 space-y-3 text-sm text-muted-foreground">
                 {result.nextSteps.map((step, i) => <li key={i} className="flex gap-3"><span className="font-display tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</span>{step}</li>)}
               </ol>
-              <Button asChild className="mt-8 h-12 rounded-sm px-6"><Link to="/contact">Book a discovery call</Link></Button>
+              <BookCall result={result} business={form.business} budget={form.budget} />
             </div>
           )}
         </div>
       </div>
     </main>
+  );
+}
+
+function BookCall({ result, business, budget }: { result: Recommendation; business: string; budget: string }) {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  if (!open) return <Button className="mt-8 h-12 rounded-sm px-6" onClick={() => setOpen(true)}>Book a discovery call</Button>;
+
+  const send = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !/^\S+@\S+\.\S+$/.test(email.trim())) {
+      setError("Please add your name and a valid email.");
+      return;
+    }
+    setSending(true);
+    setError("");
+    const plan = result.services.map((s) => `${s.priority}: ${getService(s.slug)?.title ?? s.slug}`).join("; ");
+    const { error: dbError } = await supabase.from("inquiries").insert({
+      name: name.trim().slice(0, 100),
+      email: email.trim().slice(0, 255),
+      company: business.trim().slice(0, 100) || null,
+      service: "Discovery call (Advisor)",
+      budget: budget || null,
+      message: `Advisor plan. ${result.summary}\nRecommended: ${plan}`.slice(0, 2000),
+    });
+    setSending(false);
+    if (dbError) setError("We could not send your request. Please try again.");
+    else navigate({ to: "/thank-you" });
+  };
+
+  return (
+    <form onSubmit={send} className="mt-8 space-y-4 border-t border-border pt-8">
+      <p className="text-sm text-muted-foreground">Leave your details and we will reach out to schedule the call. Your plan is attached automatically.</p>
+      <input className={field} placeholder="Your name" aria-label="Your name" maxLength={100} value={name} onChange={(e) => setName(e.target.value)} />
+      <input className={field} type="email" placeholder="you@company.com" aria-label="Email" maxLength={255} value={email} onChange={(e) => setEmail(e.target.value)} />
+      {error && <p className="text-sm text-destructive" role="alert">{error}</p>}
+      <Button type="submit" disabled={sending} className="h-12 rounded-sm px-6">{sending ? "Sending..." : "Request my call"}</Button>
+    </form>
   );
 }
