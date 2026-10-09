@@ -17,7 +17,7 @@ export class AdvisorError extends Error {
 }
 
 export async function recommendServices(input: { business: string; goals: string; needs: string; budget: string }) {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new AdvisorError("The advisor is not configured yet.", 401);
 
   const provider = createOpenAI({
