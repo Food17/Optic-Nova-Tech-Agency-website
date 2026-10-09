@@ -15,3 +15,4 @@
 - Project galleries use the shared ProjectGallery with contained artwork, thumbnail selection, and an accessible enlarged view so previews never crop design content.
 - Reviews use shared brand data with optional project associations; illustrative review previews must be explicitly labeled and kept separate from real client reviews.
 - Nested content sections use an Outlet parent with an index route so list and detail pages render independently.
+- AI service advisor: createServerFn in src/lib/advisor.functions.ts calls a server-only helper (advisor.server.ts) with structured output restricted to slugs from src/data/services.ts: keeps the key server-side and links stay valid.

@@ -4,7 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { getService } from "@/data/services";
 import { getRecommendations } from "@/lib/advisor.functions";
-import type { Recommendation } from "@/lib/advisor.server";
+type Recommendation = Extract<Awaited<ReturnType<typeof getRecommendations>>, { ok: true }>["result"];
 
 export const Route = createFileRoute("/advisor")({
   head: () => ({
